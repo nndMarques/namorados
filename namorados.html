@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaração de Amor - Dia dos Namorados</title>
+    <style>  
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6e6;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #d23669;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .love-button {
+            background-color: #ff85a2;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            text-align: center;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .love-button:hover {
+            background-color: #ff6b8b;
+            transform: scale(1.05);
+        }
+        
+        .content {
+            min-height: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .rose-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .message {
+            font-size: 1.5em;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        
+        .movie-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            max-height: 300px;
+        }
+        
+        .music-link {
+            display: inline-block;
+            background-color: #ff85a2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .music-link:hover {
+            background-color: #ff6b8b;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .heart {
+            color: #ff6b8b;
+            font-size: 1.2em;
+        }
+
+        /* Estilos para as frases flutuantes - POSIÇÕES AJUSTADAS */
+        .floating-phrase {
+            position: fixed;
+            color: #ff6b8b;
+            font-size: 1.2em;
+            font-weight: bold;
+            opacity: 0.8;
+            z-index: 0;
+            animation: float 15s infinite linear;
+            pointer-events: none;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+            /* Garantindo que não fiquem sobre os botões */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Frases flutuantes POSICIONADAS ESTRATEGICAMENTE -->
+    <!-- Área superior esquerda -->
+    <div class="floating-phrase" style="left: 5%; top: 10%; animation-delay: 0s;">Te vivo</div>
+    
+    <!-- Área superior direita -->
+    <div class="floating-phrase" style="left: 85%; top: 15%; animation-delay: 2s;">Eu te amo</div>
+    
+    <!-- Área lateral esquerda meio -->
+    <div class="floating-phrase" style="left: 10%; top: 40%; animation-delay: 4s;">Nossos filhos terão seus olhos</div>
+    
+    <!-- Área lateral direita meio -->
+    <div class="floating-phrase" style="left: 80%; top: 35%; animation-delay: 6s;">Você é meu sonho favorito</div>
+    
+    <!-- Área inferior esquerda -->
+    <div class="floating-phrase" style="left: 15%; top: 75%; animation-delay: 8s;">Eu troco minha paz por um beijo seu</div>
+    
+    <!-- Área inferior direita -->
+    <div class="floating-phrase" style="left: 75%; top: 80%; animation-delay: 10s;">Meu coração é seu</div>
+    
+    <!-- Área central esquerda -->
+    <div class="floating-phrase" style="left: 20%; top: 25%; animation-delay: 12s;">Eternamente seu</div>
+    
+    <!-- Área central direita -->
+    <div class="floating-phrase" style="left: 70%; top: 60%; animation-delay: 14s;">Você me completa</div>
+
+    <div class="container">
+        <h1>❤️ Declaração de Amor - Dia dos Namorados ❤️</h1>
+        
+        <div class="buttons">
+            <button class="love-button" onclick="showContent('giovanna')">Giovanna - Amor do Marques</button>
+            <button class="love-button" onclick="showContent('giulia')">Giulia - Amor do Gabriel</button>
+        </div>
+        
+        <div id="giovanna-content" class="content">
+            <a href="https://youtu.be/-YzDsDMYqdw?feature=shared" target="_blank" class="music-link">🎵 Ouvir "Tudo que você quiser" (Luan Santana)</a>
+            <img src="https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg5d371b8984f5d6.61466430.jpg%3FlastEdited%3D1563892620&w=600&h=600&f=webp" alt="Rosas cor de rosa" class="rose-img">
+            
+            <div class="message">
+                Rosas para minha melhor rosa! 🌹 <br> <br>
+                Giovanna, cada pétala representa um momento especial ao seu lado, <br>
+                os teus olhos e teu sorriso me inspiram! Assim como na música<br>
+                "Tudo que você quiser", eu troco a minha paz por um beijo seu.<br>
+                Feliz Dia dos Namorados, minha técnica! 🩷 <br>
+            </div>
+        </div>
+        
+        <div id="giulia-content" class="content">
+            <a href="https://youtu.be/R1yqJisehhQ?feature=shared" target="_blank" class="music-link">🎵 Ouvir "Best Part" (Daniel Caesar ft. H.E.R.)</a>
+            <img src="https://s2.glbimg.com/3aqCc8pQg2k4IDKA9k50NiXph70=/s.glbimg.com/og/rg/f/original/2014/12/15/flynn-e-rapunzel.jpg" alt="Cena do filme Enrolados" class="movie-img">
+            <div class="message">
+                Te amo, pequena! 💜<br><br>
+                Assim como no filme Enrolados, com você eu vejo a luz brilhar.<br>
+                E como na música "Best Part", você é a melhor parte do meu dia.<br>
+                Feliz Dia dos Namorados, minha eterna princesa!
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        function showContent(name) {
+            // Esconde todos os conteúdos primeiro
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Mostra o conteúdo selecionado
+            document.getElementById(`${name}-content`).classList.add('active');
+        }
+
+        // Função para gerar posições seguras que não sobreponham os botões
+        function getSafePosition() {
+            const buttonArea = {
+                x1: window.innerWidth * 0.25, 
+                x2: window.innerWidth * 0.75,
+                y1: document.querySelector('.buttons').offsetTop - 50,
+                y2: document.querySelector('.buttons').offsetTop + 100
+            };
+            
+            let x, y;
+            let isSafe = false;
+            
+            // Tentativas até encontrar uma posição segura
+            while (!isSafe) {
+                x = Math.random() * (window.innerWidth - 100) + 50;
+                y = Math.random() * (window.innerHeight - 100) + 50;
+                
+                // Verifica se está fora da área dos botões
+                isSafe = !(x > buttonArea.x1 && x < buttonArea.x2 && 
+                          y > buttonArea.y1 && y < buttonArea.y2);
+                
+                // Verifica se não está muito perto do footer
+                if (y > document.querySelector('footer').offsetTop - 100) {
+                    isSafe = false;
+                }
+            }
+            
+            return { x, y };
+        }
+
+        // Frases adicionais
+        const phrases = [
+            "Você é minha vida",
+            "Meu amor por você é infinito",
+            "Seu sorriso ilumina meu dia",
+            "Quero envelhecer ao seu lado",
+            "Você é minha pessoa favorita",
+            "Amo cada detalhe seu",
+        ];
+
+        function createFloatingPhrase() {
+            const phrase = document.createElement('div');
+            phrase.className = 'floating-phrase';
+            phrase.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            
+            // Obtém uma posição segura
+            const pos = getSafePosition();
+            phrase.style.left = pos.x + 'px';
+            phrase.style.top = pos.y + 'px';
+            
+            phrase.style.animationDuration = (10 + Math.random() * 20) + 's';
+            phrase.style.animationDelay = Math.random() * 5 + 's';
+            phrase.style.fontSize = (1 + Math.random() * 0.5) + 'em';
+            document.body.appendChild(phrase);
+
+            // Remove a frase após a animação terminar
+            setTimeout(() => {
+                phrase.remove();
+            }, 30000);
+        }
+
+        // Cria frases flutuantes periodicamente
+        setInterval(createFloatingPhrase, 3000);
+    </script>
+</body>
+</html>
